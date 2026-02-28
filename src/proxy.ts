@@ -1,6 +1,6 @@
 import { auth } from "@/auth";
 import { NextResponse } from "next/server";
-
+// According to the Next.js 16 convention, this file replaces middleware.ts
 export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;

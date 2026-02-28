@@ -31,13 +31,15 @@ export default function ContactPage() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-32"
+          className="text-center mb-32 flex flex-col items-center"
         >
-          <span className="section-tag mb-8">GET iN TOUCH</span>
-          <h1 className="text-6xl md:text-[5.5rem] font-black leading-[0.9] mb-12 uppercase tracking-tighter">
+          <span className="section-tag mb-8 mx-auto inline-block">
+            GET iN TOUCH
+          </span>
+          <h1 className="text-6xl md:text-[5.5rem] font-black leading-[0.9] mb-12 uppercase tracking-tighter text-center">
             CONTACT <span style={{ color: "var(--primary)" }}>US</span>
           </h1>
-          <p className="text-2xl max-w-3xl mx-auto font-medium leading-relaxed opacity-70">
+          <p className="text-2xl max-w-3xl mx-auto font-medium leading-relaxed opacity-70 text-center">
             Have a question, feedback, or just want to talk pizza? We're all
             ears.
           </p>

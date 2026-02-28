@@ -152,7 +152,7 @@ export default function Footer() {
                   {[
                     { label: "MENU", href: "/menu" },
                     { label: "STORY", href: "/about" },
-                    { label: "LOCATIONS", href: "/contact" },
+                    { label: "LOCATIONS", href: "/locations" },
                     { label: "CATERING", href: "/contact" },
                   ].map((link) => (
                     <li key={link.label}>

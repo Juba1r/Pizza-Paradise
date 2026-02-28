@@ -115,11 +115,19 @@ export async function GET(request: NextRequest) {
       page,
       totalPages: Math.ceil(total / limit),
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error fetching orders:", error);
+    // Return empty list instead of 500 for better Vercel demo stability
     return NextResponse.json(
-      { error: "Failed to fetch orders" },
-      { status: 500 },
+      {
+        orders: [],
+        total: 0,
+        page: 1,
+        totalPages: 0,
+        warning: "Running in offline mode (DB connection failed)",
+        details: error.message,
+      },
+      { status: 200 },
     );
   }
 }

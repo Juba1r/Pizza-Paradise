@@ -19,17 +19,17 @@ export default function AboutPage() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-32"
+          className="text-center mb-32 flex flex-col items-center"
         >
           <span className="section-tag mb-8 mx-auto inline-block">
             OUR STORY
           </span>
-          <h1 className="text-6xl md:text-[5.5rem] font-black leading-[0.9] mb-12 uppercase tracking-tighter">
+          <h1 className="text-6xl md:text-[5.5rem] font-black leading-[0.9] mb-12 uppercase tracking-tighter text-center">
             THE PEOPLE'S
             <br />
             <span style={{ color: "var(--primary)" }}>PIZZERIA</span>
           </h1>
-          <p className="text-xl sm:text-2xl max-w-3xl mx-auto font-medium leading-relaxed opacity-70 px-4">
+          <p className="text-xl sm:text-2xl max-w-3xl mx-auto font-medium leading-relaxed opacity-70 px-4 text-center">
             Founded in 1999 on Goodge Street, we've been serving authentic,
             stone-baked pizza to Londoners for over 25 years.
           </p>
