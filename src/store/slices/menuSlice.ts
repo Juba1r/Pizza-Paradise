@@ -41,11 +41,12 @@ const menuSlice = createSlice({
       })
       .addCase(fetchPizzas.fulfilled, (state, action) => {
         state.loading = false;
-        state.items = action.payload;
+        state.items = action.payload || [];
       })
       .addCase(fetchPizzas.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message || "Failed to fetch pizzas";
+        state.items = [];
       });
   },
 });
@@ -53,15 +54,15 @@ const menuSlice = createSlice({
 import { RootState } from "@/store";
 
 export const selectPizzas = (state: RootState) => {
-  const { items } = state.menu;
+  const items = state.menu.items || [];
   const { activeCategory, searchQuery } = state.ui;
 
   return items.filter((pizza) => {
     const matchesCategory =
       activeCategory === "ALL" || pizza.category === activeCategory;
     const matchesSearch =
-      pizza.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      pizza.description.toLowerCase().includes(searchQuery.toLowerCase());
+      pizza.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      pizza.description?.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 };

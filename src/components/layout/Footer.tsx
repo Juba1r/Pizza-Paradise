@@ -149,14 +149,19 @@ export default function Footer() {
                   Realm
                 </h4>
                 <ul className="space-y-8">
-                  {["MENU", "STORY", "LOCATIONS", "CATERING"].map((link) => (
-                    <li key={link}>
+                  {[
+                    { label: "MENU", href: "/menu" },
+                    { label: "STORY", href: "/about" },
+                    { label: "LOCATIONS", href: "/contact" },
+                    { label: "CATERING", href: "/contact" },
+                  ].map((link) => (
+                    <li key={link.label}>
                       <Link
-                        href={`/${link.toLowerCase()}`}
+                        href={link.href}
                         className="text-xl font-[950] transition-all tracking-tighter uppercase italic block opacity-60 hover:opacity-100 hover:text-primary"
                         style={{ color: "var(--text-heading)" }}
                       >
-                        {link}
+                        {link.label}
                       </Link>
                     </li>
                   ))}
