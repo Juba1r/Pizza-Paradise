@@ -1,0 +1,335 @@
+@import url("https://fonts.googleapis.com/css2?family=Rammetto+One&family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   LIGHT MODE (default)
+   ═══════════════════════════════════════════ */
+:root {
+  /* Colors - Industrial Minimalist */
+  --primary: #e31e24;
+  --primary-light: #ff4d4d;
+  --secondary: #008d44;
+  --secondary-light: #00b355;
+
+  --bg-body: #ffffff;
+  --bg-elevated: #f4f4f4;
+  --bg-card: #ffffff;
+  --bg-nav: rgba(255, 255, 255, 0.9);
+  --bg-input: #f9f9f9;
+
+  --text-heading: #1a1a1a;
+  --text-body: #444444;
+  --text-muted: #666666;
+  --text-faint: #999999;
+
+  --border: #e2e2e2;
+  --border-focus: #1a1a1a;
+
+  --radius-xl: 32px;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.1);
+  --shadow-btn: 0 8px 30px rgba(227, 30, 36, 0.25);
+
+  --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Spacing & Typography */
+  --line-height-tight: 1.1;
+  --line-height-base: 1.7;
+  --line-height-relaxed: 1.9;
+  --letter-spacing-tight: -0.04em;
+  --letter-spacing-base: 0.01em;
+  --letter-spacing-wide: 0.05em;
+  --section-padding: 120px;
+}
+
+/* ═══════════════════════════════════════════
+   DARK MODE
+   ═══════════════════════════════════════════ */
+[data-theme="dark"] {
+  --bg-body: #0a0a0c;
+  --bg-card: #141418;
+  --bg-card-hover: #1c1c22;
+  --bg-elevated: #1a1a1f;
+  --bg-input: #18181c;
+  --bg-nav: rgba(10, 10, 12, 0.9);
+  --bg-nav-solid: #0a0a0c;
+
+  --text-heading: #f0f0f2;
+  --text-body: #c8c8cc;
+  --text-muted: #777780;
+  --text-faint: #444450;
+
+  --border: rgba(255, 255, 255, 0.12);
+  --border-focus: var(--primary);
+
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 40px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-btn: 0 8px 30px rgba(227, 30, 36, 0.4);
+}
+
+/* ═══════════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════════ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg-body);
+  color: var(--text-body);
+  font-family: "Inter", sans-serif;
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Rammetto One", cursive;
+  color: var(--text-heading);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  text-transform: uppercase;
+}
+
+p {
+  line-height: var(--line-height-relaxed);
+  margin-bottom: 2rem;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-body);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+/* ═══════════════════════════════════════════
+   GLASS
+   ═══════════════════════════════════════════ */
+.glass {
+  background: var(--bg-nav);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--border);
+}
+
+/* ═══════════════════════════════════════════
+   CARD
+   ═══════════════════════════════════════════ */
+.pizza-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.pizza-card:hover {
+  transform: translateY(-12px);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-lg);
+}
+
+.pizza-card-content {
+  padding: 42px; /* Super generous padding to avoid border touch */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════ */
+.btn-primary {
+  background: var(--primary);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 18px;
+  font-family: "Rammetto One", cursive;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: var(--shadow-btn);
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .btn-primary {
+    padding: 18px 44px;
+    font-size: 0.85rem;
+  }
+}
+
+.btn-primary:hover {
+  background: var(--bg-body);
+  color: var(--text-heading);
+  border-color: var(--text-heading);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: var(--bg-nav-solid);
+  color: white;
+  border-color: white;
+}
+
+/* ═══════════════════════════════════════════
+   TEXT GRADIENT
+   ═══════════════════════════════════════════ */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), #ff6b6b, var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   TAGS & PILLS
+   ═══════════════════════════════════════════ */
+.section-tag {
+  display: inline-block;
+  padding: 8px 20px;
+  background: var(--secondary);
+  color: white;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+}
+
+.price-pill {
+  padding: 8px 20px;
+  background: var(--secondary);
+  color: white;
+  border-radius: 100px;
+  font-family: "Inter", sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+/* ═══════════════════════════════════════════
+   BADGE SYSTEM
+   ═══════════════════════════════════════════ */
+.badge {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.badge-red {
+  background: var(--primary);
+  color: white;
+}
+.badge-green {
+  background: var(--secondary);
+  color: white;
+}
+.badge-outline {
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════
+   GRID & LAYOUT
+   ═══════════════════════════════════════════ */
+.pizza-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 50px; /* Massive gap between cards */
+}
+
+@media (max-width: 640px) {
+  .pizza-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.section-padding {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-padding {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+}
+
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   UTILITY
+   ═══════════════════════════════════════════ */
+.scan-line {
+  display: none;
+}
